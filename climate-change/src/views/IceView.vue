@@ -1,9 +1,7 @@
 <template>
-  <div >
+  <div>
     <h1>ice warming</h1>
   </div>
 </template>
 
-<style>
-
-</style>
+<style></style>

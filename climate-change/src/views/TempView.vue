@@ -1,7 +1,5 @@
 <template>
-  
-    <div>
-      
-      <h1>Temperature</h1>
-    </div>
-  </template>
+  <div>
+    <h1>Temperatura</h1>
+  </div>
+</template>

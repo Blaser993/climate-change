@@ -1,29 +1,20 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
   <main>
-
     <header>
-      
-      
-      
-      
-      
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/temp">Temperature</RouterLink>
+        <RouterLink to="/temp">Temperatura</RouterLink>
         <RouterLink to="/co2">Co2</RouterLink>
-        <RouterLink to="/metan">Metan</RouterLink>
-        <RouterLink to="/no2">No2</RouterLink>       
-        <RouterLink to="/ice">Ice warming</RouterLink>
+        <RouterLink to="/metan">Metano</RouterLink>
+        <RouterLink to="/no2">No2</RouterLink>
+        <RouterLink to="/ice">Ghiaccio polare</RouterLink>
       </nav>
-      
     </header>
     <aside>
-      
       <RouterView />
     </aside>
   </main>
@@ -32,19 +23,28 @@ import { RouterLink, RouterView } from 'vue-router'
 <style scoped>
 header {
   line-height: 1.5;
-  max-height: 100vh;
+  min-width: 40vw;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+main{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+aside{
+  flex-grow: 1;
 }
 
 nav {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  font-size: 1rem;
+  padding: 1rem 0;
 }
 
 nav a.router-link-exact-active {
@@ -65,20 +65,7 @@ nav a:first-of-type {
   border: 0;
 }
 
-
-
-.logo {
-  margin: 0 2rem 0 0;
-}
-
-
-
 nav {
 
-  font-size: 1rem;
-
-  padding: 1rem 0;
-  margin-top: 1rem;
 }
-
 </style>
