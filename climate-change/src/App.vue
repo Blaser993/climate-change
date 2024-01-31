@@ -12,6 +12,7 @@ import { RouterLink, RouterView } from "vue-router";
         <RouterLink to="/metan">Metano</RouterLink>
         <RouterLink to="/no2">No2</RouterLink>
         <RouterLink to="/ice">Ghiaccio polare</RouterLink>
+        <RouterLink to="/ocean">Riscaldamento marino</RouterLink>
       </nav>
     </header>
     <aside>
