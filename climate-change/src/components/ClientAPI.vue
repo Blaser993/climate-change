@@ -27,9 +27,6 @@ export default {
     onMounted(() => {
       fetchDataFromAPI();
     });
-
-
-
     return { fetchData };
   },
 };

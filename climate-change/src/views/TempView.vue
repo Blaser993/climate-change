@@ -1,6 +1,6 @@
-<!-- TemperatureView.vue -->
 <template>
   <div>
+    <Chart  />
     <ClientAPI :endpoint="temperatureEndpoint" :title="title" @data-fetched="showDataFetched">
       <template v-slot="{ fetchData }">
         <div v-if="fetchData && fetchData.result.length > 0">
@@ -20,20 +20,23 @@
 
 <script>
 import ClientAPI from '../components/ClientAPI.vue';
+import Chart from '../components/Chart.vue';
 
 export default {
   components: {
     ClientAPI,
+    'Chart': Chart,
   },
   data() {
     return {
       title: 'Temperature',
       temperatureEndpoint: 'https://global-warming.org/api/temperature-api',
+
     };
   },
   methods: {
-    showDataFetched(data) {
-      console.log('Temperature data fetched:', data);
+    showDataFetched(dataAPI) {
+      console.log('Temperature data fetched:', dataAPI);
     },
   },
 };
