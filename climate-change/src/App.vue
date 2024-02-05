@@ -24,7 +24,7 @@ import { RouterLink, RouterView } from "vue-router";
 <style scoped>
 header {
   line-height: 1.5;
-  min-width: 40vw;
+  min-width: 20vw;
 }
 
 main{
@@ -35,6 +35,7 @@ main{
 
 aside{
   flex-grow: 1;
+  padding-right: 32px;
 }
 
 nav {
@@ -66,7 +67,5 @@ nav a:first-of-type {
   border: 0;
 }
 
-nav {
 
-}
 </style>
