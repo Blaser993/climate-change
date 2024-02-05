@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '../views/HomeView.vue';
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,12 +13,12 @@ const router = createRouter({
     {
       path: '/temp',
       name: 'temperature',
-      component: () => import('../views/TempView.vue')
+      component: () => import('../views/TempView.vue'),
     },
     {
       path: '/co2',
       name: 'co2',
-      component: () => import('../views/CO2View.vue')
+      component: () => import('../views/CO2View.vue'),
     },
     {
       path: '/metan',

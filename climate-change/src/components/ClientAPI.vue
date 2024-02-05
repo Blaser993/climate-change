@@ -1,42 +1,41 @@
 <template>
   <div>
-    <h1>{{ temperatureData }}</h1>
+    <h2>{{ title }}</h2>
+    <slot :fetchData="fetchData" />
   </div>
 </template>
 
-
 <script>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import { ref, onMounted} from 'vue';
 
 export default {
-  setup() {
-    // Utilizzo di ref per creare reattività
-    const temperatureData = ref(null);
+  props: ['endpoint', 'title'],
+  setup(props, { emit }) {
+    const fetchData = ref(null);
 
-    // Utilizzo di onMounted per chiamare la funzione quando il componente è montato
-    onMounted(async () => {
-      await fetchTemperatureData();
-    });
-
-    // Funzione per effettuare la richiesta API
-    const fetchTemperatureData = async () => {
+    const fetchDataFromAPI = async () => {
       try {
-        const response = await axios.get('https://global-warming.org/api/temperature-api');
-        temperatureData.value = response.data; // Assicurati che la struttura del dato sia adatta alle tue esigenze
+        const response = await fetch(props.endpoint);
+        const jsonData = await response.json();
+        fetchData.value = jsonData; 
+        emit('data-fetched', fetchData.value);
       } catch (error) {
-        console.error('Errore durante il recupero dei dati dalla API:', error);
+        console.error('Errore nel recupero dei dati:', error);
       }
     };
 
-    // Restituzione dei dati e delle funzioni necessari nel setup
-    return {
-      temperatureData,
-      fetchTemperatureData,
-    };
+    onMounted(() => {
+      fetchDataFromAPI();
+    });
+
+
+
+    return { fetchData };
   },
 };
 </script>
+
+
 
 <!-- https://global-warming.org/api/temperature-api
 https://global-warming.org/api/co2-api
